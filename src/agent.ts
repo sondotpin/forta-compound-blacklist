@@ -5,12 +5,12 @@ import {
   FindingSeverity, 
   FindingType 
 } from 'forta-agent';
-import { CONTRACT_ADDRESS, BLACK_LIST_ADDRESS, AGENT_NAME, ALERT_ID, DESCRIPTION } from './constant';
+import { COMPTROLLER_CONTRACT_ADDRESS, BLACK_LIST_ADDRESS, AGENT_NAME, ALERT_ID, DESCRIPTION } from './constant';
 
 const handleTransaction: HandleTransaction = async (txEvent: TransactionEvent) => {
   const findings: Finding[] = [];
   
-  if (txEvent.to !== CONTRACT_ADDRESS) return findings;
+  if (txEvent.to !== COMPTROLLER_CONTRACT_ADDRESS) return findings;
 
   const address = BLACK_LIST_ADDRESS.find(address => Object.keys(txEvent.addresses).includes(address));
 

@@ -6,14 +6,14 @@ import {
   createTransactionEvent
 } from "forta-agent"
 import agent from "./agent"
-import { CONTRACT_ADDRESS, BLACK_LIST_ADDRESS, AGENT_NAME, ALERT_ID, DESCRIPTION } from "./constant"
+import { COMPTROLLER_CONTRACT_ADDRESS, BLACK_LIST_ADDRESS, AGENT_NAME, ALERT_ID, DESCRIPTION } from "./constant"
 
-describe("high gas agent", () => {
+describe("high backlist address agent", () => {
   let handleTransaction: HandleTransaction
 
   const createTxEventWithAddresses = (addresses: {[addr: string]: boolean}) => createTransactionEvent({
     transaction: {
-      to: CONTRACT_ADDRESS,
+      to: COMPTROLLER_CONTRACT_ADDRESS,
     } as any,
     receipt: {} as any,
     block: {} as any,
